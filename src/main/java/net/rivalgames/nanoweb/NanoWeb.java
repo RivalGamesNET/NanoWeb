@@ -57,6 +57,14 @@ public class NanoWeb {
 
         this.processor = new AnnotationProcessor();
 
+        this.javalin = Javalin.create(javalinConfig -> {
+            javalinConfig.showJavalinBanner = false;
+            javalinConfig.jsonMapper(new JavalinGson());
+            configConsumer.accept(javalinConfig);
+        }).start(port);
+    }
+
+    public void quietLoggers() {
         List<String> ignoreLogs = List.of(
                 "io.javalin.Javalin",
                 "org.eclipse.jetty.server.Server",
@@ -67,13 +75,8 @@ public class NanoWeb {
 
         for (String s : ignoreLogs)
             System.setProperty("org.slf4j.simpleLogger.log." + s, "error");
-
-        this.javalin = Javalin.create(javalinConfig -> {
-            javalinConfig.showJavalinBanner = false;
-            javalinConfig.jsonMapper(new JavalinGson());
-            configConsumer.accept(javalinConfig);
-        }).start(port);
     }
+
 
     public void shutdown() {
         javalin.stop();

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>net.rivalgames</groupId>
+  <artifactId>nanoweb</artifactId>
+  <version>1.0.0</version>
+  <name>NanoWeb</name>
+
+  <description>A lightweight web framework built on top of Javalin</description>
+  <url>http://github.com/RivalGamesNET/NanoWeb</url>
+
+  <properties>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+
+  <developers>
+    <developer>
+      <name>Moose</name>
+       <url>https://github.com/Moose1301</url>
+    </developer>
+    <developer>
+      <name>Alfie</name>
+       <url>https://github.com/Aplosh</url>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git://github.com/RivalGamesNET/NanoWeb.git</connection>
+    <developerConnection>scm:git:ssh://github.com:RivalGamesNET/NanoWeb.git</developerConnection>
+    <url>http://github.com/RivalGamesNET/NanoWeb/tree/master</url>
+   </scm>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.36</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.11.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.javalin</groupId>
+      <artifactId>javalin</artifactId>
+      <version>6.4.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.7.5</version>
+      <scope>provided</scope>
+    </dependency>
+
+  </dependencies>
+
+</project>

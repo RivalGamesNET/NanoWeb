@@ -9,18 +9,18 @@ import org.jetbrains.annotations.Nullable;
  * @date 10/7/2024
  */
 
-public record Response(HttpStatus status, @Nullable String result) {
+public record Response(HttpStatus status, @Nullable String result, boolean json) {
 
     public Response(JsonElement element, HttpStatus status) {
-        this(status, element.toString());
+        this(status, element.toString(), true);
     }
 
     public Response(String result, HttpStatus status) {
-        this(status, result);
+        this(status, result, false);
     }
 
     public Response(HttpStatus status) {
-        this(status, null);
+        this(status, null, false);
     }
 
 }

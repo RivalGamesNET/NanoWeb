@@ -4,11 +4,11 @@
 
   <groupId>net.rivalgames</groupId>
   <artifactId>nanoweb</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <name>NanoWeb</name>
 
   <description>A lightweight web framework built on top of Javalin</description>
-  <url>http://github.com/RivalGamesNET/NanoWeb</url>
+  <url>https://github.com/RivalGamesNET/NanoWeb</url>
 
   <properties>
     <maven.compiler.source>21</maven.compiler.source>
@@ -70,4 +70,24 @@
 
   </dependencies>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.3.0</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <createDependencyReducedPom>false</createDependencyReducedPom>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

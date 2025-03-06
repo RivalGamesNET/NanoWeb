@@ -1,17 +1,13 @@
 package net.rivalgames.nanoweb.processor;
 
-import io.javalin.Javalin;
 import io.javalin.http.HandlerType;
 import lombok.Getter;
-import net.rivalgames.nanoweb.NanoWeb;
 import net.rivalgames.nanoweb.annotation.MethodMapping;
-import net.rivalgames.nanoweb.annotation.RateLimit;
 import net.rivalgames.nanoweb.annotation.RestController;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Pattern;
 
 @Getter
 public class AnnotationProcessor {

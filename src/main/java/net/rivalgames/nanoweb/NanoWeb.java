@@ -124,8 +124,12 @@ public class NanoWeb {
                     Response response = serve(context, typeRoutes.getValue());
 
                     context.status(response.status());
-                    if (response.result() != null)
+                    if (response.json() && response.result() != null)
+                        context.json(response.result());
+                    else if (response.result() != null)
                         context.result(response.result());
+
+
                 });
             }
         }
@@ -176,7 +180,7 @@ public class NanoWeb {
                     case RequestContext ignored -> args[i] = context;
                     case RequestAttribute requestAttribute -> args[i] = context.attribute(requestAttribute.value());
                     case RequestFormParam requestForm -> {
-                        if(paramTypes[i] == UploadedFile.class)
+                        if (paramTypes[i] == UploadedFile.class)
                             args[i] = context.uploadedFile(requestForm.value());
                         else
                             args[i] = toValue(context.formParam(requestForm.value()), paramTypes[i]);

@@ -2,6 +2,7 @@ package net.rivalgames.nanoweb.model;
 
 import com.google.gson.JsonElement;
 import io.javalin.http.HttpStatus;
+import net.rivalgames.nanoweb.NanoWeb;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -12,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
 public record Response(HttpStatus status, @Nullable String result, boolean json) {
 
     public Response(JsonElement element, HttpStatus status) {
-        this(status, element.toString(), true);
+        this(status, NanoWeb.GSON.toJson(element), true);
     }
 
     public Response(String result, HttpStatus status) {
